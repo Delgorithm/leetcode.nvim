@@ -191,12 +191,13 @@ queries.study_plan_detail = [[
         }
     ]]
 
-queries.study_blind_detail = [[
-        query problem-list($slug: String!) {
-          favoriteDetailV2(planSlug: $slug) {
-            planSubGroups {
-              questions {
-                title_slug: titleSlug
+queries.problem_list_detail = [[
+    query problemList($slug: String!) {
+        favoriteDetailV2(favId: $slug) {
+            publicFavorite {
+                questions {
+                  title
+                  titleSlug
               }
             }
           }
