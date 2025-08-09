@@ -192,7 +192,7 @@ queries.study_plan_detail = [[
     ]]
 
 queries.study_blind_detail = [[
-        query problem-list($slug: String!) {
+        query problemlist($slug: String!) {
           studyPlanV2Detail(planSlug: $slug) {
             planSubGroups {
               questions {
