@@ -16,30 +16,30 @@ page:insert(header)
 page:insert(Title({ "Menu" }, "Problems"))
 
 local list = Button("List", {
-    icon = "",
-    sc = "p",
-    on_press = cmd.problems,
+  icon = "",
+  sc = "p",
+  on_press = cmd.problems,
 })
 
 local random = Button("Random", {
-    icon = "",
-    sc = "r",
-    on_press = cmd.random_question,
+  icon = "",
+  sc = "r",
+  on_press = cmd.random_question,
 })
 
 local daily = Button("Daily", {
-    icon = "󰃭",
-    sc = "d",
-    on_press = cmd.qot,
+  icon = "󰃭",
+  sc = "d",
+  on_press = cmd.qot,
 })
 
 local back = BackButton("menu")
 
 page:insert(Buttons({
-    list,
-    random,
-    daily,
-    back,
+  list,
+  random,
+  daily,
+  back,
 }))
 
 page:insert(footer)
