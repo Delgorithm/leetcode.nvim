@@ -156,6 +156,21 @@ function cmd.top_interview_150()
   end)
 end
 
+function cmd.leetcode_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.leetcode_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p)
+  end)
+end
+
 function cmd.random_question(opts)
   require("leetcode.utils").auth_guard()
 
@@ -655,6 +670,9 @@ cmd.commands = {
   },
   top_interview = {
     cmd.top_interview_150
+  },
+  leetcode_75 = {
+    cmd.leetcode_75
   },
   desc = {
     cmd.desc_toggle,
