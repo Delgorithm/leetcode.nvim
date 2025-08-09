@@ -130,7 +130,7 @@ function Problems.translated_titles(cb)
 end
 
 function Problems.blind_75(cb)
-  local query = queries.study_blind_detail
+  local query = queries.study_plan_detail
 
   utils.query(query, { slug = "blind-75" }, {
     callback = function(res, err)
