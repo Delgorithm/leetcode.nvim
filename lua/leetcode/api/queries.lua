@@ -192,21 +192,40 @@ queries.study_plan_detail = [[
     ]]
 
 queries.problem_list_detail = [[
-    query problemList($categorySlug: String!, $skip: Int!, $limit: Int!, $filters: QuestionListFilterInput) {
-        problemsetQuestionList: questionList(
-            categorySlug: $categorySlug
-            skip: $skip
+    query favoriteQuestionList($favoriteSlug: String!, $filter: FavoriteQuestionFilterInput, $filtersV2: QuestionFilterInput, $searchKeyword: String, $sortBy: QuestionSortByInput, $limit: Int, $skip: Int, $version: String) {
+        favoriteQuestionList(
+            favoriteSlug: $favoriteSlug
+            filter: $filter
+            filtersV2: $filtersV2
+            searchKeyword: $searchKeyword
+            sortBy: $sortBy
             limit: $limit
-            filters: $filters
+            skip: $skip
+            version: $version
         ) {
-            questions: data {
-                titleSlug
-                title
+            questions {
                 difficulty
+                id
+                paidOnly
+                questionFrontendId
                 status
+                title
+                titleSlug
+                translatedTitle
+                isInMyFavorites
+                frequency
+                acRate
+                contestPoint
+                topicTags {
+                    name
+                    nameTranslated
+                    slug
+                }
+            }
+            totalLength
+            hasMore
           }
         }
-      }
-  ]]
+    ]]
 
 return queries

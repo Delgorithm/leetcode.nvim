@@ -131,20 +131,19 @@ end
 
 function Problems.blind_75(cb)
   local query = queries.problem_list_detail
-
   utils.query(query, {
-    categorySlug = "",
+    favoriteSlug = "oizxjoit",
     skip = 0,
-    limit = 100,
-    filters = { listId = "oizxjoit" }
+    limit = 75,
+    version = "v2"
   }, {
     callback = function(res, err)
       if err then
         return cb(nil, err)
       end
       local title_slugs = {}
-      if res.data["problemsetQuestionList"] and res.data["problemsetQuestionList"]["questions"] then
-        for _, q in ipairs(res.data["problemsetQuestionList"]["questions"]) do
+      if res.data["favoriteQuestionList"] and res.data["favoriteQuestionList"]["questions"] then
+        for _, q in ipairs(res.data["favoriteQuestionList"]["questions"]) do
           table.insert(title_slugs, q.titleSlug)
         end
       end
