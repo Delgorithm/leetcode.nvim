@@ -192,10 +192,12 @@ queries.study_plan_detail = [[
     ]]
 
 queries.study_blind_detail = [[
-        query favoriteQuestions($slug: String!) {
-          favoriteQuestions(slug: $slug) {
-            question {
-              titleSlug
+        query problem-list($slug: String!) {
+          studyPlanV2Detail(planSlug: $slug) {
+            planSubGroups {
+              questions {
+                title_slug: titleSlug
+              }
             }
           }
         }
