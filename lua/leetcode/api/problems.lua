@@ -130,7 +130,7 @@ function Problems.translated_titles(cb)
 end
 
 function Problems.blind_75(cb)
-  local query = queries.study_plan_detail
+  local query = queries.study_blind_detail
 
   utils.query(query, { slug = "blind-75" }, {
     callback = function(res, err)
@@ -138,8 +138,8 @@ function Problems.blind_75(cb)
         return cb(nil, err)
       end
       local title_slugs = {}
-      for _, v in ipairs(res.data["favoriteQuestions"]) do
-        for _, q in ipairs(v["favoriteQuestions"]) do
+      for _, v in ipairs(res.data["studyPlanV2Detail"]["planSubGroups"]) do
+        for _, q in ipairs(v["questions"]) do
           table.insert(title_slugs, q.title_slug)
         end
       end
