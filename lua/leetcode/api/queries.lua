@@ -192,16 +192,16 @@ queries.study_plan_detail = [[
     ]]
 
 queries.problem_list_detail = [[
-    query problemList($slug: String!) {
-        favoriteDetailV2(favId: $slug) {
-            publicFavorite {
-                questions {
-                  title
-                  titleSlug
-              }
-            }
+    query favoriteDetail($favoriteSlug: String!) {
+        favoriteDetailV2(favoriteSlug: $favoriteSlug) {
+            idHash
+            name
+            isPublicFavorite
+            questions {
+                titleSlug
+                title
           }
         }
+      }
     ]]
-
 return queries

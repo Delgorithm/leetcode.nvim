@@ -132,15 +132,15 @@ end
 function Problems.blind_75(cb)
   local query = queries.problem_list_detail
 
-  utils.query(query, { slug = "oizxjoit" }, {
+  utils.query(query, { favoriteSlug = "oizxjoit" }, {
     callback = function(res, err)
       if err then
         return cb(nil, err)
       end
       local title_slugs = {}
-      for _, v in ipairs(res.data["studyPlanV2Detail"]["planSubGroups"]) do
-        for _, q in ipairs(v["questions"]) do
-          table.insert(title_slugs, q.title_slug)
+      if res.data["favoriteDetailV2"] and res.data["favoriteDetailV2"]["questions"] then
+        for _, q in ipairs(res.data["favoriteDetailV2"]["questions"]) do
+          table.insert(title_slugs, q.titleSlug)
         end
       end
       return cb(title_slugs)
@@ -157,9 +157,9 @@ function Problems.top_interview_150(cb)
         return cb(nil, err)
       end
       local title_slugs = {}
-      if res.data["favoriteDetailV2"] and res.data["favoriteDetailV2"]["publicFavorite"] then
-        for _, q in ipairs(res.data["favoriteDetailV2"]["publicFavorite"]["questions"]) do
-          table.insert(title_slugs, q.titleSlug)
+      for _, v in ipairs(res.data["studyPlanV2Detail"]["planSubGroups"]) do
+        for _, q in ipairs(v["questions"]) do
+          table.insert(title_slugs, q.title_slug)
         end
       end
       return cb(title_slugs)
