@@ -192,17 +192,21 @@ queries.study_plan_detail = [[
     ]]
 
 queries.problem_list_detail = [[
-    query favoriteDetail($favoriteSlug: String!) {
-        favoriteDetailV2(favoriteSlug: $favoriteSlug) {
-            idHash
-            name
-            isPublicFavorite
-            questions {
+    query problemList($categorySlug: String!, $skip: Int!, $limit: Int!, $filters: QuestionListFilterInput) {
+        problemsetQuestionList: questionList(
+            categorySlug: $categorySlug
+            skip: $skip
+            limit: $limit
+            filters: $filters
+        ) {
+            questions: data {
                 titleSlug
                 title
-            }
+                difficulty
+                status
           }
         }
-    ]]
+      }
+  ]]
 
 return queries
