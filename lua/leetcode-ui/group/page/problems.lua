@@ -45,15 +45,22 @@ local leetcode75 = Button("LeetCode 75", {
   on_press = cmd.leetcode_75
 })
 
+local blind75 = Button("Blind 75", {
+  icon = "",
+  sc = "b",
+  on_pres = cmd.blind_75
+})
+
 local back = BackButton("menu")
 
 page:insert(Buttons({
   list,
   random,
   daily,
-  back,
+  blind75,
   top150,
   leetcode75,
+  back,
 }))
 
 page:insert(footer)
