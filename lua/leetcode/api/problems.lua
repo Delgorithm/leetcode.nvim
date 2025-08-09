@@ -157,7 +157,7 @@ function Problems.leetcode_75(cb)
         return cb(nil, err)
       end
       local title_slugs = {}
-      for _, v in ipairs(res.data["studyPlanV@Detail"]["planSubGroups"]) do
+      for _, v in ipairs(res.data["studyPlanV2Detail"]["planSubGroups"]) do
         for _, q in ipairs(v["questions"]) do
           table.insert(title_slugs, q.title_slug)
         end
