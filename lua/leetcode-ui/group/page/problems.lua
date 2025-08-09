@@ -33,6 +33,15 @@ local daily = Button("Daily", {
   on_press = cmd.qot,
 })
 
+local blind75 = Button("Blind 75", {
+  icon = "",
+  sc = "b",
+  on_press = function()
+    cmd.set_menu_page("blind-75")
+  end,
+  expandable = true
+})
+
 local top150 = Button("Top 150", {
   icon = "󱜺",
   sc = "t",
@@ -45,11 +54,6 @@ local leetcode75 = Button("LeetCode 75", {
   on_press = cmd.leetcode_75
 })
 
-local blind75 = Button("Blind 75", {
-  icon = "",
-  sc = "b",
-  on_pres = cmd.blind_75
-})
 
 local back = BackButton("menu")
 
