@@ -12,141 +12,142 @@ local Problems = {}
 ---
 ---@return lc.cache.Question[], lc.err
 function Problems.all(cb, noti)
-    local endpoint = urls.problems:format("algorithms")
+  local endpoint = urls.problems:format("algorithms")
 
-    local spinner
-    if noti then
-        spinner = Spinner:start("updating problemlist cache", "points")
-    end
+  local spinner
+  if noti then
+    spinner = Spinner:start("updating problemlist cache", "points")
+  end
 
-    if cb then
-        utils.get(endpoint, {
-            callback = function(res, err)
-                if err then
-                    if spinner then
-                        spinner:error(err.msg)
-                    end
-                    return cb(nil, err)
-                end
-
-                local problems = utils.normalize_problems(res.stat_status_pairs)
-
-                if config.is_cn then
-                    if spinner then
-                        spinner:update("fetching title translations")
-                    end
-                    Problems.translated_titles(function(titles, terr)
-                        if terr then
-                            if spinner then
-                                spinner:error(terr.msg)
-                            end
-                            return cb(nil, terr)
-                        end
-
-                        problems = utils.translate_titles(problems, titles)
-                        if spinner then
-                            spinner:success("cache updated")
-                        end
-
-                        cb(problems)
-                    end)
-                else
-                    if spinner then
-                        spinner:success("cache updated")
-                    end
-
-                    cb(problems)
-                end
-            end,
-        })
-    else
-        local res, err = utils.get(endpoint)
+  if cb then
+    utils.get(endpoint, {
+      callback = function(res, err)
         if err then
-            if spinner then
-                spinner:error(err.msg)
-            end
-            return nil, err
+          if spinner then
+            spinner:error(err.msg)
+          end
+          return cb(nil, err)
         end
 
         local problems = utils.normalize_problems(res.stat_status_pairs)
 
         if config.is_cn then
-            local titles, terr = Problems.translated_titles()
+          if spinner then
+            spinner:update("fetching title translations")
+          end
+          Problems.translated_titles(function(titles, terr)
             if terr then
-                if spinner then
-                    spinner:error(terr.msg)
-                end
-                return nil, terr
+              if spinner then
+                spinner:error(terr.msg)
+              end
+              return cb(nil, terr)
             end
 
+            problems = utils.translate_titles(problems, titles)
             if spinner then
-                spinner:success("problems cache updated")
+              spinner:success("cache updated")
             end
-            return utils.translate_titles(problems, titles)
+
+            cb(problems)
+          end)
         else
-            if spinner then
-                spinner:success("problems cache updated")
-            end
-            return problems
+          if spinner then
+            spinner:success("cache updated")
+          end
+
+          cb(problems)
         end
+      end,
+    })
+  else
+    local res, err = utils.get(endpoint)
+    if err then
+      if spinner then
+        spinner:error(err.msg)
+      end
+      return nil, err
     end
+
+    local problems = utils.normalize_problems(res.stat_status_pairs)
+
+    if config.is_cn then
+      local titles, terr = Problems.translated_titles()
+      if terr then
+        if spinner then
+          spinner:error(terr.msg)
+        end
+        return nil, terr
+      end
+
+      if spinner then
+        spinner:success("problems cache updated")
+      end
+      return utils.translate_titles(problems, titles)
+    else
+      if spinner then
+        spinner:success("problems cache updated")
+      end
+      return problems
+    end
+  end
 end
 
 function Problems.question_of_today(cb)
-    local query = queries.qot
+  local query = queries.qot
 
-    utils.query(query, {}, {
-        callback = function(res, err)
-            if err then
-                return cb(nil, err)
-            end
-
-            local tday_record = res.data["todayRecord"]
-            local question = config.is_cn and tday_record[1].question or tday_record.question
-            cb(question)
-        end,
-    })
-end
-
-function Problems.translated_titles(cb)
-    local query = queries.translations
-
-    if cb then
-        utils.query(query, {}, {
-            callback = function(res, err)
-                if err then
-                    return cb(nil, err)
-                end
-                cb(res.data.translations)
-            end,
-        })
-    else
-        local res, err = utils.query(query, {})
-        if err then
-            return nil, err
-        end
-        return res.data.translations
-    end
-end
-
-function Problems.top_interview_150(cb)
-    local query = queries.study_plan_detail
-
-  utils.query(query, { slug = "top-interview-150"}, {
+  utils.query(query, {}, {
     callback = function(res, err)
       if err then
         return cb(nil, err)
       end
 
-    local title_slug = {}
-    for _, v in ipairs(res.data["studyPlanV2Detail"]["planSubGroups"]) do
-      for _, q in ipairs(v["questions"]) do
-        table.insert(title_slugs, q.title_slug)
-      end
-    end
+      local tday_record = res.data["todayRecord"]
+      local question = config.is_cn and tday_record[1].question or tday_record.question
+      cb(question)
+    end,
+  })
+end
 
-    return cb(title_slugs)
+function Problems.translated_titles(cb)
+  local query = queries.translations
+
+  if cb then
+    utils.query(query, {}, {
+      callback = function(res, err)
+        if err then
+          return cb(nil, err)
+        end
+        cb(res.data.translations)
+      end,
+    })
+  else
+    local res, err = utils.query(query, {})
+    if err then
+      return nil, err
+    end
+    return res.data.translations
+  end
+end
+
+function Problems.top_interview_150(cb)
+  local query = queries.study_plan_detail
+
+  utils.query(query, { slug = "top-interview-150" }, {
+    callback = function(res, err)
+      if err then
+        return cb(nil, err)
+      end
+
+      local title_slug = {}
+      for _, v in ipairs(res.data["studyPlanV2Detail"]["planSubGroups"]) do
+        for _, q in ipairs(v["questions"]) do
+          table.insert(title_slugs, q.title_slug)
+        end
+      end
+
+      return cb(title_slugs)
     end
   })
+end
 
 return Problems
