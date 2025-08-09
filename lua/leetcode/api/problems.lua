@@ -138,8 +138,8 @@ function Problems.blind_75(cb)
         return cb(nil, err)
       end
       local title_slugs = {}
-      for _, v in ipairs(res.data["problem-list"]["problem-list"]) do
-        for _, q in ipairs(v["questions"]) do
+      for _, v in ipairs(res.data["favoriteQuestions"]) do
+        for _, q in ipairs(v["favoriteQuestions"]) do
           table.insert(title_slugs, q.title_slug)
         end
       end
