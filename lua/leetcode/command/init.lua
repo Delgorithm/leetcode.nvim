@@ -351,7 +351,7 @@ function cmd.last_submit()
   end
 
   local question_api = require("leetcode.api.question")
-  question_api.latest_submission(q.q.id, q.lang, function(res, err)   --
+  question_api.latest_submission(q.q.id, q.lang, function(res, err) --
     if err then
       if err.status == 404 then
         log.error("You haven't submitted any code!")
@@ -391,7 +391,7 @@ function cmd.restore()
   local winid, bufnr = q.description.winid, q.description.bufnr
 
   if
-      (winid and api.nvim_win_is_valid(winid))   --
+      (winid and api.nvim_win_is_valid(winid)) --
       and (bufnr and api.nvim_buf_is_valid(bufnr))
   then
     ui.win_set_buf(q.winid, q.bufnr)

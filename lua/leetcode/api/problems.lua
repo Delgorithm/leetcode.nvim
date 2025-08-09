@@ -137,14 +137,12 @@ function Problems.top_interview_150(cb)
       if err then
         return cb(nil, err)
       end
-
-      local title_slug = {}
+      local title_slugs = {}
       for _, v in ipairs(res.data["studyPlanV2Detail"]["planSubGroups"]) do
         for _, q in ipairs(v["questions"]) do
           table.insert(title_slugs, q.title_slug)
         end
       end
-
       return cb(title_slugs)
     end
   })
