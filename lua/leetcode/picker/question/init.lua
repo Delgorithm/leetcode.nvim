@@ -36,71 +36,15 @@ function P.filter(items, opts)
   end, items)
 end
 
----@param items lc.cache.Question[]
----@param group_by_category boolean
----@return lc.cache.Question[]
-function P.group_by_category(items, group_by_category)
-  if not group_by_category then
-    return items
-  end
-
-  local categories = {}
-  for _, question in ipairs(items) do
-    local tags = question.tags or question.topic_tags or {}
-    if #tags == 0 then
-      table.insert(categories, { category = "Other", questions = { question } })
-    else
-      for _, tag in ipairs(tags) do
-        local category_name = tag.name or tag
-        local found = false
-        for _, cat in ipairs(categories) do
-          if cat.category == category_name then
-            table.insert(cat.questions, question)
-            found = true
-            break
-          end
-        end
-        if not found then
-          table.insert(categories, { category = category_name, questions = { question } })
-        end
-      end
-    end
-  end
-
-  table.sort(categories, function(a, b) return a.category < b.category end)
-
-  local result = {}
-  for _, cat in ipairs(categories) do
-    table.insert(result, {
-      frontend_id = "---",
-      title = "─── " .. cat.category:upper() .. " ───",
-      title_slug = "__category_" .. cat.category,
-      difficulty = "",
-      status = "category_header",
-      ac_rate = 0,
-      paid_only = false,
-      is_category_header = true,
-    })
-
-    for _, question in ipairs(cat.questions) do
-      table.insert(result, question)
-    end
-  end
-
-  return result
-end
-
 ---@param content lc.cache.Question[]
 ---@param opts table<string, string[]>
----@param group_by_category boolean|nil
+---
 ---@return { entry: any, value: lc.cache.Question }[]
-function P.items(content, opts, group_by_category)
+function P.items(content, opts)
   local filtered = P.filter(content, opts)
-  local grouped = P.group_by_category(filtered, group_by_category)
-
   return vim.tbl_map(function(item)
     return { entry = P.entry(item), value = item }
-  end, grouped)
+  end, filtered)
 end
 
 ---@param question lc.cache.Question
@@ -128,14 +72,6 @@ local function display_question(question)
 end
 
 function P.entry(item)
-  if item.is_category_header then
-    return {
-      { "",         "leetcode_normal" },
-      { "",         "leetcode_normal" },
-      { item.title, "leetcode_list" },
-    }
-  end
-
   return {
     display_user_status(item),
     display_difficulty(item),
@@ -154,10 +90,6 @@ function P.ordinal(item)
 end
 
 function P.select(selection, close)
-  if selection.is_category_header then
-    return
-  end
-
   if selection.paid_only and not config.auth.is_premium then
     return log.warn("Question is for premium users only")
   end

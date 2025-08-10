@@ -180,29 +180,16 @@ queries.session_progress = [[
     ]]
 
 queries.study_plan_detail = [[
-    query studyPlanDetail($slug: String!) {
-      studyPlanV2Detail(planSlug: $slug) {
-        planSubGroups {
-          questions {
-            title_slug: titleSlug
-            difficulty
-            id
-            paidOnly
-            questionFrontendId
-            status
-            title
-            translatedTitle
-            acRate
-            topicTags {
-              name
-              nameTranslated
-              slug
+        query studyPlanDetail($slug: String!) {
+          studyPlanV2Detail(planSlug: $slug) {
+            planSubGroups {
+              questions {
+                title_slug: titleSlug
               }
             }
           }
         }
-      }
-  ]]
+    ]]
 
 queries.problem_list_detail = [[
     query favoriteQuestionList($favoriteSlug: String!, $filter: FavoriteQuestionFilterInput, $filtersV2: QuestionFilterInput, $searchKeyword: String, $sortBy: QuestionSortByInput, $limit: Int, $skip: Int, $version: String) {

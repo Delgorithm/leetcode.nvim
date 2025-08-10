@@ -42,22 +42,12 @@ local theme = require("telescope.themes").get_dropdown({
 })
 
 ---@param questions lc.cache.Question[]
-return function(questions, opts, group_by_category)
-  local items = question_picker.items(questions, opts, group_by_category)
-
-  local function entry_maker(item)
-    return {
-      value = item.value,
-      display = function()
-        return displayer(item.entry)
-      end,
-      ordinal = item.value.is_category_header and item.value.title or question_picker.ordinal(item.value),
-    }
-  end
+return function(questions, opts)
+  local items = question_picker.items(questions, opts)
 
   pickers
       .new(theme, {
-        prompt_title = t("Select a Question") .. (group_by_category and " (Grouped)" or ""),
+        prompt_title = t("Select a Question"),
         finder = finders.new_table({
           results = items,
           entry_maker = entry_maker,
@@ -66,10 +56,8 @@ return function(questions, opts, group_by_category)
         attach_mappings = function(prompt_bufnr)
           actions.select_default:replace(function()
             local selection = action_state.get_selected_entry()
-            if not selection or selection.value.is_category_header then
-              if not selection then
-                log.warn("No selection")
-              end
+            if not selection then
+              log.warn("No selection")
               return
             end
             question_picker.select(selection.value, function()

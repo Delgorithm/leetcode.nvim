@@ -6,8 +6,8 @@ local Picker = require("leetcode.picker")
 
 local deli = " "
 
-return function(questions, opts, group_by_category)
-  local items = question_picker.items(questions, opts, group_by_category)
+return function(questions, opts)
+  local items = question_picker.items(questions, opts)
 
   for i, item in ipairs(items) do
     items[i] = Picker.normalize({ item })[1]
@@ -16,7 +16,7 @@ return function(questions, opts, group_by_category)
   end
 
   fzf.fzf_exec(items, {
-    prompt = t("Select a Question") .. (group_by_category and " (Grouped)" or "") .. "> ",
+    prompt = t("Select a Question") .. "> ",
     winopts = {
       height = question_picker.height,
       width = question_picker.width,
@@ -28,9 +28,6 @@ return function(questions, opts, group_by_category)
     actions = {
       ["default"] = function(selected)
         local slug = Picker.hidden_field(selected[1], deli)
-        if slug:match("^__category_") then
-          return
-        end
         local question = problemlist.get_by_title_slug(slug)
         question_picker.select(question)
       end,

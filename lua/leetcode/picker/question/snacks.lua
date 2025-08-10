@@ -5,8 +5,8 @@ local question_picker = require("leetcode.picker.question")
 local picker = require("snacks.picker")
 
 ---@param questions lc.cache.Question[]
-return function(questions, opts, group_by_category)
-  local items = question_picker.items(questions, opts, group_by_category)
+return function(questions, opts)
+  local items = question_picker.items(questions, opts)
   local finder_items = {}
   local completed = false
 
@@ -32,7 +32,7 @@ return function(questions, opts, group_by_category)
       end, item.item.entry)
       return ret
     end,
-    title = t("Select a Question") .. (group_by_category and " (Grouped)" or ""),
+    title = t("Select a Question"),
     layout = {
       preset = "select",
       preview = false,
@@ -43,7 +43,7 @@ return function(questions, opts, group_by_category)
     },
     actions = {
       confirm = function(p, item)
-        if completed or item.item.value.is_category_header then
+        if completed then
           return
         end
         completed = true
