@@ -21,6 +21,12 @@ local list = Button("List", {
   on_press = cmd.top_interview_150
 })
 
+local grouped = Button("Grouped", {
+  icon = "󰕘",
+  sc = "g",
+  on_press = cmd.top_interview_150_grouped,
+})
+
 local random = Button("Random", {
   icon = "",
   sc = "r",
@@ -31,6 +37,7 @@ local back = BackButton("problems")
 
 page:insert(Buttons({
   list,
+  grouped,
   random,
   back
 }))

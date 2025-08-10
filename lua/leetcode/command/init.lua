@@ -152,22 +152,7 @@ function cmd.blind_75()
     end
     local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
     local picker = require("leetcode.picker")
-    picker.question(p)
-  end)
-end
-
-function cmd.top_interview_150()
-  require("leetcode.utils").auth_guard()
-
-  local problems = require("leetcode.api.problems")
-
-  problems.top_interview_150(function(slugs, err)
-    if err then
-      return log.err(err)
-    end
-    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
-    local picker = require("leetcode.picker")
-    picker.question(p)
+    picker.question(p, nil, false)
   end)
 end
 
@@ -182,7 +167,61 @@ function cmd.leetcode_75()
     end
     local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
     local picker = require("leetcode.picker")
-    picker.question(p)
+    picker.question(p, nil, false)
+  end)
+end
+
+function cmd.top_interview_150()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.top_interview_150(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
+function cmd.blind_75_grouped()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.blind_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, true)
+  end)
+end
+
+function cmd.leetcode_75_grouped()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.leetcode_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, true)
+  end)
+end
+
+function cmd.top_interview_150_grouped()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.top_interview_150(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, true)
   end)
 end
 

@@ -14,58 +14,70 @@ local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
 local displayer = entry_display.create({
-    separator = " ",
-    items = {
-        { width = 1 },
-        { width = 1 },
-        { width = 5 },
-        { remaining = true },
-        { remaining = true },
-    },
+  separator = " ",
+  items = {
+    { width = 1 },
+    { width = 1 },
+    { width = 5 },
+    { remaining = true },
+    { remaining = true },
+  },
 })
 
 local function entry_maker(item)
-    return {
-        value = item.value,
-        display = function()
-            return displayer(item.entry)
-        end,
-        ordinal = question_picker.ordinal(item.value),
-    }
+  return {
+    value = item.value,
+    display = function()
+      return displayer(item.entry)
+    end,
+    ordinal = question_picker.ordinal(item.value),
+  }
 end
 
 local theme = require("telescope.themes").get_dropdown({
-    layout_config = {
-        width = question_picker.width,
-        height = question_picker.height,
-    },
+  layout_config = {
+    width = question_picker.width,
+    height = question_picker.height,
+  },
 })
 
 ---@param questions lc.cache.Question[]
-return function(questions, opts)
-    local items = question_picker.items(questions, opts)
+return function(questions, opts, group_by_category)
+  local items = question_picker.items(questions, opts, group_by_category)
 
-    pickers
-        .new(theme, {
-            prompt_title = t("Select a Question"),
-            finder = finders.new_table({
-                results = items,
-                entry_maker = entry_maker,
-            }),
-            sorter = conf.generic_sorter(theme),
-            attach_mappings = function(prompt_bufnr)
-                actions.select_default:replace(function()
-                    local selection = action_state.get_selected_entry()
-                    if not selection then
-                        log.warn("No selection")
-                        return
-                    end
-                    question_picker.select(selection.value, function()
-                        actions.close(prompt_bufnr)
-                    end)
-                end)
-                return true
-            end,
-        })
-        :find()
+  local function entry_maker(item)
+    return {
+      value = item.value,
+      display = function()
+        return displayer(item.entry)
+      end,
+      ordinal = item.value.is_category_header and item.value.title or question_picker.ordinal(item.value),
+    }
+  end
+
+  pickers
+      .new(theme, {
+        prompt_title = t("Select a Question") .. (group_by_category and " (Grouped)" or ""),
+        finder = finders.new_table({
+          results = items,
+          entry_maker = entry_maker,
+        }),
+        sorter = conf.generic_sorter(theme),
+        attach_mappings = function(prompt_bufnr)
+          actions.select_default:replace(function()
+            local selection = action_state.get_selected_entry()
+            if not selection or selection.value.is_category_header then
+              if not selection then
+                log.warn("No selection")
+              end
+              return
+            end
+            question_picker.select(selection.value, function()
+              actions.close(prompt_bufnr)
+            end)
+          end)
+          return true
+        end,
+      })
+      :find()
 end
