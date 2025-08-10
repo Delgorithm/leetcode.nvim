@@ -51,7 +51,6 @@ local leetcode75 = Button("LeetCode 75", {
   expandable = true
 })
 
-
 local top150 = Button("Top 150", {
   icon = "󱜺",
   sc = "t",

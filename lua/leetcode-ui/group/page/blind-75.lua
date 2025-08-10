@@ -21,17 +21,10 @@ local list = Button("List", {
   on_press = cmd.blind_75
 })
 
-local random = Button("Random", {
-  icon = "",
-  sc = "r",
-  on_press = cmd.random_question,
-})
-
 local back = BackButton("problems")
 
 page:insert(Buttons({
   list,
-  random,
   back,
 }))
 
