@@ -42,18 +42,24 @@ local blind75 = Button("Blind 75", {
   expandable = true
 })
 
-local top150 = Button("Top 150", {
-  icon = "󱜺",
-  sc = "t",
-  on_press = cmd.top_interview_150
-})
-
 local leetcode75 = Button("LeetCode 75", {
   icon = "󰲕",
   sc = "f",
-  on_press = cmd.leetcode_75
+  on_press = function()
+    cmd.set_menu_page("leetcode-75")
+  end,
+  expandable = true
 })
 
+
+local top150 = Button("Top 150", {
+  icon = "󱜺",
+  sc = "t",
+  on_press = function()
+    cmd.set_menu_page("top-150")
+  end,
+  expandable = true
+})
 
 local back = BackButton("menu")
 
@@ -62,8 +68,8 @@ page:insert(Buttons({
   random,
   daily,
   blind75,
-  top150,
   leetcode75,
+  top150,
   back,
 }))
 
