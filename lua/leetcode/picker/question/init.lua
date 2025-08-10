@@ -44,33 +44,55 @@ function P.group_by_category(items, group_by_category)
     return items
   end
 
+  local problemlist = require("leetcode.cache.problemlist")
+
   local categories = {}
+
   for _, question in ipairs(items) do
-    local tags = question.tags or question.topic_tags or {}
+    local full_question = question
+    if not question.topic_tags or #question.topic_tags == 0 then
+      full_question = problemlist.get_by_title_slug(question.title_slug) or question
+    end
+
+    local tags = full_question.topic_tags or full_question.topicTags or {}
+
     if #tags == 0 then
-      table.insert(categories, { category = "Other", questions = { question } })
+      local found = false
+      for _, cat in ipairs(categories) do
+        if cat.category == "Other" then
+          table.insert(cat.questions, question)
+          found = true
+          break
+        end
+      end
+      if not found then
+        table.insert(categories, { category = "Other", questions = { question } })
+      end
     else
-      for _, tag in ipairs(tags) do
-        local category_name = tag.name or tag
-        local found = false
-        for _, cat in ipairs(categories) do
-          if cat.category == category_name then
-            table.insert(cat.questions, question)
-            found = true
-            break
-          end
+      local main_tag = tags[1]
+      local category_name = main_tag.name or main_tag.nameTranslated or tostring(main_tag)
+
+      local found = false
+      for _, cat in ipairs(categories) do
+        if cat.category == category_name then
+          table.insert(cat.questions, question)
+          found = true
+          break
         end
-        if not found then
-          table.insert(categories, { category = category_name, questions = { question } })
-        end
+      end
+      if not found then
+        table.insert(categories, { category = category_name, questions = { question } })
       end
     end
   end
 
+  -- Trier les catégories alphabétiquement
   table.sort(categories, function(a, b) return a.category < b.category end)
 
+  -- Créer une liste plate avec des séparateurs
   local result = {}
   for _, cat in ipairs(categories) do
+    -- Ajouter un header de catégorie
     table.insert(result, {
       frontend_id = "---",
       title = "─── " .. cat.category:upper() .. " ───",
@@ -82,6 +104,7 @@ function P.group_by_category(items, group_by_category)
       is_category_header = true,
     })
 
+    -- Ajouter les questions de cette catégorie
     for _, question in ipairs(cat.questions) do
       table.insert(result, question)
     end
