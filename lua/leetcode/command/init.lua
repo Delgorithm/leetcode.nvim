@@ -239,6 +239,8 @@ function cmd.random_blind_75()
 
     local Question = require("leetcode-ui.question")
     Question(question):mount()
+
+    log.info("Random question : " .. random_index "/75")
   end)
 end
 
@@ -268,6 +270,8 @@ function cmd.random_leetcode_75()
 
     local Question = require("leetcode-ui.question")
     Question(question):mount()
+
+    log.info("Random question : " .. random_index "/75")
   end)
 end
 
@@ -297,6 +301,8 @@ function cmd.random_top_interview_150()
 
     local Question = require("leetcode-ui.question")
     Question(question):mount()
+
+    log.info("Random question : " .. random_index "/150")
   end)
 end
 
