@@ -213,6 +213,37 @@ function cmd.random_question(opts)
   Question(item):mount()
 end
 
+function cmd.random_blind_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.blind_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Blind 75 questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random Blind 75 question : " .. question.title)
+  end)
+end
+
 function cmd.start_with_cmd()
   local leetcode = require("leetcode")
   if leetcode.start(false) then

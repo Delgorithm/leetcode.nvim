@@ -13,7 +13,7 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({ "Menu" }, "Problems", "Leetcode Top 150"))
+page:insert(Title({ "Problems" }, "Leetcode Top 150"))
 
 local list = Button("List", {
   icon = "󱜺",
@@ -21,10 +21,17 @@ local list = Button("List", {
   on_press = cmd.top_interview_150
 })
 
+local random = Button("Random", {
+  icon = "",
+  sc = "r",
+  on_press = cmd.random_leetcode_150,
+})
+
 local back = BackButton("problems")
 
 page:insert(Buttons({
   list,
+  random,
   back
 }))
 
