@@ -225,6 +225,38 @@ function cmd.top_interview_150_grouped()
   end)
 end
 
+function cmd.debug_blind_75_structure()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.blind_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+
+    if p and #p > 0 then
+      local first_question = p[1]
+      print("Structure de la première question:")
+      print(vim.inspect(first_question))
+
+      if first_question.topic_tags then
+        print("topic_tags trouvés:", vim.inspect(first_question.topic_tags))
+      elseif first_question.topicTags then
+        print("topicTags trouvés:", vim.inspect(first_question.topicTags))
+      else
+        print("Aucun tag trouvé dans cette structure")
+
+        local problemlist = require("leetcode.cache.problemlist")
+        local full_question = problemlist.get_by_title_slug(first_question.title_slug)
+        if full_question then
+          print("Question complète du cache:", vim.inspect(full_question))
+        end
+      end
+    end
+  end)
+end
+
 function cmd.random_question(opts)
   require("leetcode.utils").auth_guard()
 
