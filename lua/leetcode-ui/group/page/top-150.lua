@@ -24,7 +24,7 @@ local list = Button("List", {
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_leetcode_150,
+  on_press = cmd.random_top_interview_150,
 })
 
 local back = BackButton("problems")
