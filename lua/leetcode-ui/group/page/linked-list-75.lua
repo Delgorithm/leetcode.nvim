@@ -27,7 +27,7 @@ local random = Button("Random", {
   on_press = cmd.random_linked_list_75,
 })
 
-local back = BackButton("topics")
+local back = BackButton("topics-75")
 
 page:insert(Buttons({
   list,

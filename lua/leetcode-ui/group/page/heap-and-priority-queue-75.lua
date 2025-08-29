@@ -22,7 +22,7 @@ local list = Button("List", {
 })
 
 
-local back = BackButton("topics")
+local back = BackButton("topics-75")
 
 page:insert(Buttons({
   list,

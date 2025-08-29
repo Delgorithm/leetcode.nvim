@@ -21,7 +21,7 @@ local list = Button("List", {
   on_press = cmd.stack_75
 })
 
-local back = BackButton("topics")
+local back = BackButton("topics-75")
 
 page:insert(Buttons({
   list,
