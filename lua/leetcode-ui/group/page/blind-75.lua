@@ -28,7 +28,7 @@ local random = Button("Random", {
 })
 
 local topics = Button("Topics", {
-  icon = "",
+  icon = "",
   sc = "t",
   on_press = function()
     cmd.set_menu_page("topics-75")

@@ -15,7 +15,7 @@ page:insert(header)
 
 page:insert(Title({ "Blind 75" }, "Topics"))
 
-local array_and_hashing = Button("Topics", {
+local array_and_hashing = Button("Array & Hashing", {
   icon = "",
   sc = "a",
   on_press = function()
@@ -24,135 +24,135 @@ local array_and_hashing = Button("Topics", {
   expandable = true,
 })
 
-local two_pointers = Button("Topics", {
+local two_pointers = Button("Two Pointers", {
   icon = "",
-  sc = "a",
+  sc = "t",
   on_press = function()
     cmd.set_menu_page("two-pointers-75")
   end,
   expandable = true,
 })
 
-local sliding_window = Button("Topics", {
+local sliding_window = Button("Sliding Window", {
   icon = "",
-  sc = "a",
+  sc = "w",
   on_press = function()
     cmd.set_menu_page("sliding-window-75")
   end,
   expandable = true,
 })
 
-local stack = Button("Topics", {
+local stack = Button("Stack", {
   icon = "",
-  sc = "a",
+  sc = "s",
   on_press = function()
     cmd.set_menu_page("stack-75")
   end,
   expandable = true,
 })
 
-local binary_search = Button("Topics", {
+local binary_search = Button("Binary Search", {
   icon = "",
-  sc = "a",
+  sc = "b",
   on_press = function()
     cmd.set_menu_page("binary-search-75")
   end,
   expandable = true,
 })
 
-local linked_list = Button("Topics", {
+local linked_list = Button("Linked List", {
   icon = "",
-  sc = "a",
+  sc = "l",
   on_press = function()
     cmd.set_menu_page("linked-list-75")
   end,
   expandable = true,
 })
 
-local trees = Button("Topics", {
+local trees = Button("Trees", {
   icon = "",
-  sc = "a",
+  sc = "t",
   on_press = function()
     cmd.set_menu_page("trees-75")
   end,
   expandable = true,
 })
 
-local heap_and_priority_queue = Button("Topics", {
+local heap_and_priority_queue = Button("Heap & Priority Queue", {
   icon = "",
-  sc = "a",
+  sc = "h",
   on_press = function()
     cmd.set_menu_page("heap-and-priority-queue-75")
   end,
   expandable = true,
 })
 
-local backtracking = Button("Topics", {
+local backtracking = Button("Backtracking", {
   icon = "",
-  sc = "a",
+  sc = "v",
   on_press = function()
     cmd.set_menu_page("backtracking-75")
   end,
   expandable = true,
 })
 
-local tries = Button("Topics", {
+local tries = Button("Tries", {
   icon = "",
-  sc = "a",
+  sc = "y",
   on_press = function()
     cmd.set_menu_page("tries-75")
   end,
   expandable = true,
 })
 
-local graph = Button("Topics", {
+local graph = Button("Graph", {
   icon = "",
-  sc = "a",
+  sc = "g",
   on_press = function()
     cmd.set_menu_page("graphs-75")
   end,
   expandable = true,
 })
 
-local dynamic_programming = Button("Topics", {
+local dynamic_programming = Button("Dynamic Programming", {
   icon = "",
-  sc = "a",
+  sc = "p",
   on_press = function()
     cmd.set_menu_page("dynamic-programming-75")
   end,
   expandable = true,
 })
 
-local greedy = Button("Topics", {
+local greedy = Button("Greedy", {
   icon = "",
-  sc = "a",
+  sc = "g",
   on_press = function()
     cmd.set_menu_page("greedy-75")
   end,
   expandable = true,
 })
 
-local intervals = Button("Topics", {
+local intervals = Button("Intervals", {
   icon = "",
-  sc = "a",
+  sc = "l",
   on_press = function()
     cmd.set_menu_page("interval-75")
   end,
   expandable = true,
 })
 
-local math_and_geometry = Button("Topics", {
+local math_and_geometry = Button("Math & Geometry", {
   icon = "",
-  sc = "a",
+  sc = "g",
   on_press = function()
     cmd.set_menu_page("math-and-geometry-75")
   end,
   expandable = true,
 })
 
-local bit_manipulation = Button("Topics", {
+local bit_manipulation = Button("Bit Manipulation", {
   icon = "",
-  sc = "a",
+  sc = "m",
   on_press = function()
     cmd.set_menu_page("bit-manipulation-75")
   end,
