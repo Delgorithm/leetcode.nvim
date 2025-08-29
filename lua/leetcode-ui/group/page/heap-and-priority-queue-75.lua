@@ -13,7 +13,7 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({ "Blind 75" }, "Heap & Priority Queue"))
+page:insert(Title({ "Topics" }, "Heap & Priority Queue"))
 
 local list = Button("List", {
   icon = "",
@@ -22,7 +22,7 @@ local list = Button("List", {
 })
 
 
-local back = BackButton("problems")
+local back = BackButton("topics")
 
 page:insert(Buttons({
   list,

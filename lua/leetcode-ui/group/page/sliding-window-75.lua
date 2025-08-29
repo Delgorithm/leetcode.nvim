@@ -13,7 +13,7 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({ "Blind 75" }, "Sliding Window"))
+page:insert(Title({ "Topics" }, "Sliding Window"))
 
 local list = Button("List", {
   icon = "",
@@ -27,7 +27,7 @@ local random = Button("Random", {
   on_press = cmd.random_sliding_window_75(),
 })
 
-local back = BackButton("problems")
+local back = BackButton("topics")
 
 page:insert(Buttons({
   list,

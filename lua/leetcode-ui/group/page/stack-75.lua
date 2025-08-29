@@ -13,7 +13,7 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({ "Blind 75" }, "Stack"))
+page:insert(Title({ "Topics" }, "Stack"))
 
 local list = Button("List", {
   icon = "",
@@ -21,7 +21,7 @@ local list = Button("List", {
   on_press = cmd.stack_75()
 })
 
-local back = BackButton("problems")
+local back = BackButton("topics")
 
 page:insert(Buttons({
   list,

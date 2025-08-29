@@ -89,7 +89,7 @@ local heap_and_priority_queue = Button("Heap & Priority Queue", {
 
 local backtracking = Button("Backtracking", {
   icon = "",
-  sc = "u",
+  sc = "k",
   on_press = function()
     cmd.set_menu_page("backtracking-75")
   end,
@@ -143,7 +143,7 @@ local intervals = Button("Intervals", {
 
 local math_and_geometry = Button("Math & Geometry", {
   icon = "",
-  sc = "g",
+  sc = "o",
   on_press = function()
     cmd.set_menu_page("math-and-geometry-75")
   end,

@@ -13,7 +13,7 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({ "Blind 75" }, "Math & Geometry"))
+page:insert(Title({ "Topics" }, "Math & Geometry"))
 
 local list = Button("List", {
   icon = "",
@@ -27,7 +27,7 @@ local random = Button("Random", {
   on_press = cmd.random_math_and_geometry_75(),
 })
 
-local back = BackButton("problems")
+local back = BackButton("topics")
 
 page:insert(Buttons({
   list,
