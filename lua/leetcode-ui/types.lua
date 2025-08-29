@@ -35,7 +35,7 @@
 ---| "blind-75"
 ---| "leetcode-75"
 ---| "top-150"
----| "array-and-hashing-75"
+---| "arrays-and-hashing-75"
 ---| "two-pointers-75"
 ---| "sliding-window-75"
 ---| "stack-75"

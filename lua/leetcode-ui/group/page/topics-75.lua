@@ -159,7 +159,7 @@ local bit_manipulation = Button("Bit Manipulation", {
   expandable = true,
 })
 
-local back = BackButton("problems")
+local back = BackButton("blind-75")
 
 page:insert(Buttons({
   array_and_hashing,

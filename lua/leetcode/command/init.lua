@@ -244,12 +244,12 @@ function cmd.random_blind_75()
   end)
 end
 
-function cmd.random_array_and_hashing_75()
+function cmd.random_arrays_and_hashing_75()
   require("leetcode.utils").auth_guard()
 
   local problems = require("leetcode.api.problems")
 
-  problems.array_and_hashing_75(function(slugs, err)
+  problems.arrays_and_hashing_75(function(slugs, err)
     if err then
       return log.err(err)
     end
