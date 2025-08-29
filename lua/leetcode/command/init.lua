@@ -435,7 +435,7 @@ function cmd.random_binary_search_75()
   end)
 end
 
-unction cmd.linked_list_75()
+function cmd.linked_list_75()
   require("leetcode.utils").auth_guard()
   local problems = require("leetcode.api.problems")
   problems.linked_list_75(function(slugs, err)
@@ -637,7 +637,6 @@ function cmd.graphs_75()
   end)
 end
 
-
 function cmd.random_graph_75()
   require("leetcode.utils").auth_guard()
 
@@ -681,7 +680,6 @@ function cmd.dynamic_programming_75()
     picker.question(p, nil, false)
   end)
 end
-
 
 function cmd.random_dynamic_programming_75()
   require("leetcode.utils").auth_guard()
