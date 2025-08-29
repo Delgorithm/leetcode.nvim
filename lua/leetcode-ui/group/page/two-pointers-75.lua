@@ -18,13 +18,13 @@ page:insert(Title({ "Topics" }, "Two Pointers"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.two_pointers_75()
+  on_press = cmd.two_pointers_75
 })
 
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_two_pointers_75(),
+  on_press = cmd.random_two_pointers_75,
 })
 
 local back = BackButton("topics")

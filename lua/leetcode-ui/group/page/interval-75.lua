@@ -18,13 +18,13 @@ page:insert(Title({ "Topics" }, "Interval"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.interval_75()
+  on_press = cmd.interval_75
 })
 
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_interval_75(),
+  on_press = cmd.random_interval_75,
 })
 
 local back = BackButton("topics")

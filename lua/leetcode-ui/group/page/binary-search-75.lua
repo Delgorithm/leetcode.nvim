@@ -18,13 +18,13 @@ page:insert(Title({ "Topics" }, "Binary Search"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.binary_search_75()
+  on_press = cmd.binary_search_75
 })
 
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_binary_search_75(),
+  on_press = cmd.random_binary_search_75,
 })
 
 local back = BackButton("topics")

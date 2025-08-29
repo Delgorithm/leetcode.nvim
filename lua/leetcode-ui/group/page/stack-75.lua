@@ -18,7 +18,7 @@ page:insert(Title({ "Topics" }, "Stack"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.stack_75()
+  on_press = cmd.stack_75
 })
 
 local back = BackButton("topics")

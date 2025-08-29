@@ -18,13 +18,13 @@ page:insert(Title({ "Topics" }, "Math & Geometry"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.math_and_geometry_75()
+  on_press = cmd.math_and_geometry_75
 })
 
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_math_and_geometry_75(),
+  on_press = cmd.random_math_and_geometry_75,
 })
 
 local back = BackButton("topics")

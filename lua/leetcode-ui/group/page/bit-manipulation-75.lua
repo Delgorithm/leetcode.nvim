@@ -18,13 +18,13 @@ page:insert(Title({ "Blind 75" }, "Bit Manipulation"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.bit_manipulation_75()
+  on_press = cmd.bit_manipulation_75
 })
 
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_bit_manipulation_75(),
+  on_press = cmd.random_bit_manipulation_75,
 })
 
 local back = BackButton("problems")

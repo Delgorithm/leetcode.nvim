@@ -18,13 +18,13 @@ page:insert(Title({ "Topics" }, "Sliding Window"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.sliding_window_75()
+  on_press = cmd.sliding_window_75
 })
 
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_sliding_window_75(),
+  on_press = cmd.random_sliding_window_75,
 })
 
 local back = BackButton("topics")

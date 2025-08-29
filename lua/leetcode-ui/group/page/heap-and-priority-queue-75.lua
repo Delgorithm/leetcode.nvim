@@ -18,7 +18,7 @@ page:insert(Title({ "Topics" }, "Heap & Priority Queue"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.heap_and_priority_queue_75()
+  on_press = cmd.heap_and_priority_queue_75
 })
 
 

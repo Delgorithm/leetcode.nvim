@@ -244,6 +244,21 @@ function cmd.random_blind_75()
   end)
 end
 
+function cmd.arrays_and_hashing_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.arrays_and_hashing_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
 function cmd.random_arrays_and_hashing_75()
   require("leetcode.utils").auth_guard()
 
@@ -272,6 +287,19 @@ function cmd.random_arrays_and_hashing_75()
     Question(question):mount()
 
     log.info("Random question : " .. random_index .. "/8")
+  end)
+end
+
+function cmd.two_pointers_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.two_pointers_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
   end)
 end
 
@@ -306,6 +334,19 @@ function cmd.random_two_pointers_75()
   end)
 end
 
+function cmd.sliding_window_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.sliding_window_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
 function cmd.random_sliding_window_75()
   require("leetcode.utils").auth_guard()
 
@@ -334,6 +375,32 @@ function cmd.random_sliding_window_75()
     Question(question):mount()
 
     log.info("Random question : " .. random_index .. "/4")
+  end)
+end
+
+function cmd.stack_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.stack_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
+function cmd.binary_search_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.binary_search_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
   end)
 end
 
@@ -368,6 +435,19 @@ function cmd.random_binary_search_75()
   end)
 end
 
+unction cmd.linked_list_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.linked_list_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
 function cmd.random_linked_list_75()
   require("leetcode.utils").auth_guard()
 
@@ -396,6 +476,19 @@ function cmd.random_linked_list_75()
     Question(question):mount()
 
     log.info("Random question : " .. random_index .. "/6")
+  end)
+end
+
+function cmd.trees_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.trees_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
   end)
 end
 
@@ -430,6 +523,19 @@ function cmd.random_trees_75()
   end)
 end
 
+function cmd.heap_and_priority_queue_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.heap_and_priority_queue_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
 function cmd.random_backtracking_75()
   require("leetcode.utils").auth_guard()
 
@@ -458,6 +564,32 @@ function cmd.random_backtracking_75()
     Question(question):mount()
 
     log.info("Random question : " .. random_index .. "/2")
+  end)
+end
+
+function cmd.backtracking_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.backtracking_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
+function cmd.tries_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.tries_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
   end)
 end
 
@@ -492,6 +624,20 @@ function cmd.random_tries_75()
   end)
 end
 
+function cmd.graphs_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.graphs_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
+
 function cmd.random_graph_75()
   require("leetcode.utils").auth_guard()
 
@@ -523,6 +669,20 @@ function cmd.random_graph_75()
   end)
 end
 
+function cmd.dynamic_programming_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.dynamic_programming_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
+
 function cmd.random_dynamic_programming_75()
   require("leetcode.utils").auth_guard()
 
@@ -551,6 +711,19 @@ function cmd.random_dynamic_programming_75()
     Question(question):mount()
 
     log.info("Random question : " .. random_index .. "/12")
+  end)
+end
+
+function cmd.greedy_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.greedy_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
   end)
 end
 
@@ -585,6 +758,19 @@ function cmd.random_greedy_75()
   end)
 end
 
+function cmd.interval_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.interval_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
 function cmd.random_interval_75()
   require("leetcode.utils").auth_guard()
 
@@ -616,6 +802,19 @@ function cmd.random_interval_75()
   end)
 end
 
+function cmd.math_and_geometry_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.math_and_geometry_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
+  end)
+end
+
 function cmd.random_math_and_geometry_75()
   require("leetcode.utils").auth_guard()
 
@@ -644,6 +843,19 @@ function cmd.random_math_and_geometry_75()
     Question(question):mount()
 
     log.info("Random question : " .. random_index .. "/3")
+  end)
+end
+
+function cmd.bit_manipulation_75()
+  require("leetcode.utils").auth_guard()
+  local problems = require("leetcode.api.problems")
+  problems.bit_manipulation_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+    local p = require("leetcode.cache.problemlist").get_by_title_slugs(slugs)
+    local picker = require("leetcode.picker")
+    picker.question(p, nil, false)
   end)
 end
 

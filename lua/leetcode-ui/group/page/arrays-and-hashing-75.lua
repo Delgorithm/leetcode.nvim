@@ -18,13 +18,13 @@ page:insert(Title({ "Topics" }, "Array & Hashing"))
 local list = Button("List", {
   icon = "",
   sc = "p",
-  on_press = cmd.arrays_and_hashing_75()
+  on_press = cmd.arrays_and_hashing_75
 })
 
 local random = Button("Random", {
   icon = "",
   sc = "r",
-  on_press = cmd.random_arrays_and_hashing_75(),
+  on_press = cmd.random_arrays_and_hashing_75,
 })
 
 local back = BackButton("topics")
