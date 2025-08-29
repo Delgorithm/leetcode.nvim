@@ -13,7 +13,7 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({ "Topics" }, "Array & Hashing"))
+page:insert(Title({ "Topics" }, "Arrays & Hashing"))
 
 local list = Button("List", {
   icon = "",
@@ -27,7 +27,7 @@ local random = Button("Random", {
   on_press = cmd.random_arrays_and_hashing_75,
 })
 
-local back = BackButton("topics")
+local back = BackButton("topics-75")
 
 page:insert(Buttons({
   list,
