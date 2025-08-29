@@ -62,7 +62,7 @@ local binary_search = Button("Binary Search", {
 
 local linked_list = Button("Linked List", {
   icon = "",
-  sc = "l",
+  sc = "u",
   on_press = function()
     cmd.set_menu_page("linked-list-75")
   end,
@@ -80,7 +80,7 @@ local trees = Button("Trees", {
 
 local heap_and_priority_queue = Button("Heap & Priority Queue", {
   icon = "",
-  sc = "h",
+  sc = "z",
   on_press = function()
     cmd.set_menu_page("heap-and-priority-queue-75")
   end,
@@ -89,7 +89,7 @@ local heap_and_priority_queue = Button("Heap & Priority Queue", {
 
 local backtracking = Button("Backtracking", {
   icon = "",
-  sc = "k",
+  sc = "x",
   on_press = function()
     cmd.set_menu_page("backtracking-75")
   end,
