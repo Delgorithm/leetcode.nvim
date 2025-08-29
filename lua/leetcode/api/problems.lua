@@ -157,13 +157,13 @@ function Problems.arrays_and_hashing_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8s07vm",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
-      callback = function(res, err)
-        if err then
-          return cb(nil, err)
-        end
+    callback = function(res, err)
+      if err then
+        return cb(nil, err)
+      end
       local title_slugs = {}
       if res.data["favoriteQuestionList"] and res.data["favoriteQuestionList"]["questions"] then
         for _, q in ipairs(res.data["favoriteQuestionList"]["questions"]) do
@@ -171,7 +171,8 @@ function Problems.arrays_and_hashing_75(cb)
         end
       end
       return cb(title_slugs)
-    })
+    end
+  })
 end
 
 function Problems.two_pointers_75(cb)
@@ -179,7 +180,7 @@ function Problems.two_pointers_75(cb)
   utils.query(query, {
     favoriteSlug = "vx84p1or",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -201,7 +202,7 @@ function Problems.sliding_window_75(cb)
   utils.query(query, {
     favoriteSlug = "vx84i46i",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -223,7 +224,7 @@ function Problems.stack_75(cb)
   utils.query(query, {
     favoriteSlug = "vx815j4j",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -245,7 +246,7 @@ function Problems.binary_search_75(cb)
   utils.query(query, {
     favoriteSlug = "vx81ve75",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -267,7 +268,7 @@ function Problems.linked_list_75(cb)
   utils.query(query, {
     favoriteSlug = "vx816hjh",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -289,7 +290,7 @@ function Problems.trees_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8yuo3s",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -311,7 +312,7 @@ function Problems.heap_and_priority_queue_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8cshgg",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -333,7 +334,7 @@ function Problems.backtracking_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8cbiid",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -355,7 +356,7 @@ function Problems.tries_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8bp89e",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -377,7 +378,7 @@ function Problems.graph_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8b7gkm",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -399,7 +400,7 @@ function Problems.dynamic_programming_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8jtexi",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -421,7 +422,7 @@ function Problems.greedy_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8f4ce5",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -443,7 +444,7 @@ function Problems.interval_75(cb)
   utils.query(query, {
     favoriteSlug = "vx8ffwyg",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -465,7 +466,7 @@ function Problems.math_and_geometry_75(cb)
   utils.query(query, {
     favoriteSlug = "vx3hvpv2",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)
@@ -487,7 +488,7 @@ function Problems.bit_manipulation_75(cb)
   utils.query(query, {
     favoriteSlug = "vx3huuxr",
     skip = 0,
-    limit = 7,
+    limit = 75,
     version = "v2"
   }, {
       callback = function(res, err)

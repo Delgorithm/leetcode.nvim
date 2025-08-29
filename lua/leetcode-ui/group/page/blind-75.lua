@@ -27,11 +27,22 @@ local random = Button("Random", {
   on_press = cmd.random_blind_75,
 })
 
+local topics = Button("Topics", {
+  icon = "",
+  sc = "t",
+  on_press = function()
+    cmd.set_menu_page("topics-75")
+  end,
+  expandable = true,
+})
+
+
 local back = BackButton("problems")
 
 page:insert(Buttons({
   list,
   random,
+  topics,
   back,
 }))
 
