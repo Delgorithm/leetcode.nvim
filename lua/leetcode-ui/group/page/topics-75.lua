@@ -15,11 +15,11 @@ page:insert(header)
 
 page:insert(Title({ "Blind 75" }, "Topics"))
 
-local array_and_hashing = Button("Array & Hashing", {
+local arrays_and_hashing = Button("Arrays & Hashing", {
   icon = "",
   sc = "a",
   on_press = function()
-    cmd.set_menu_page("array-and-hashing-75")
+    cmd.set_menu_page("arrays-and-hashing-75")
   end,
   expandable = true,
 })
@@ -71,7 +71,7 @@ local linked_list = Button("Linked List", {
 
 local trees = Button("Trees", {
   icon = "",
-  sc = "t",
+  sc = "i",
   on_press = function()
     cmd.set_menu_page("trees-75")
   end,
@@ -89,7 +89,7 @@ local heap_and_priority_queue = Button("Heap & Priority Queue", {
 
 local backtracking = Button("Backtracking", {
   icon = "",
-  sc = "v",
+  sc = "u",
   on_press = function()
     cmd.set_menu_page("backtracking-75")
   end,
@@ -125,7 +125,7 @@ local dynamic_programming = Button("Dynamic Programming", {
 
 local greedy = Button("Greedy", {
   icon = "",
-  sc = "g",
+  sc = "e",
   on_press = function()
     cmd.set_menu_page("greedy-75")
   end,
@@ -134,7 +134,7 @@ local greedy = Button("Greedy", {
 
 local intervals = Button("Intervals", {
   icon = "",
-  sc = "l",
+  sc = "v",
   on_press = function()
     cmd.set_menu_page("interval-75")
   end,
@@ -162,7 +162,7 @@ local bit_manipulation = Button("Bit Manipulation", {
 local back = BackButton("blind-75")
 
 page:insert(Buttons({
-  array_and_hashing,
+  arrays_and_hashing,
   two_pointers,
   sliding_window,
   stack,
