@@ -244,6 +244,440 @@ function cmd.random_blind_75()
   end)
 end
 
+function cmd.random_array_and_hashing_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.array_and_hashing_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Array and Hashing questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/8")
+  end)
+end
+
+function cmd.random_two_pointers_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.two_pointers_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Two Pointers questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/3")
+  end)
+end
+
+function cmd.random_sliding_window_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.sliding_window_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Sliding Window questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/4")
+  end)
+end
+
+function cmd.random_binary_search_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.binary_search_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Binary Search questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/2")
+  end)
+end
+
+function cmd.random_linked_list_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.linked_list_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Linked List questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/6")
+  end)
+end
+
+function cmd.random_trees_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.trees_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Trees questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/11")
+  end)
+end
+
+function cmd.random_backtracking_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.backtracking_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Backtracking questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/2")
+  end)
+end
+
+function cmd.random_tries_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.tries_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Tries questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/3")
+  end)
+end
+
+function cmd.random_graph_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.graph_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Graph questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/6")
+  end)
+end
+
+function cmd.random_dynamic_programming_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.dynamic_programming_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Dynamic Programming questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/12")
+  end)
+end
+
+function cmd.random_greedy_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.greedy_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Greedy questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/2")
+  end)
+end
+
+function cmd.random_interval_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.interval_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Interval questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/5")
+  end)
+end
+
+function cmd.random_math_and_geometry_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.math_and_geometry_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Math and Geometry questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/3")
+  end)
+end
+
+function cmd.random_bit_manipulation_75()
+  require("leetcode.utils").auth_guard()
+
+  local problems = require("leetcode.api.problems")
+
+  problems.bit_manipulation_75(function(slugs, err)
+    if err then
+      return log.err(err)
+    end
+
+    if not slugs or #slugs == 0 then
+      return log.error("No Bit Manipulation questions found")
+    end
+
+    local random_index = math.random(1, #slugs)
+    local random_slug = slugs[random_index]
+
+    local problemlist = require("leetcode.cache.problemlist")
+    local question = problemlist.get_by_title_slug(random_slug)
+
+    if not question then
+      return log.error("Question not found : " .. random_slug)
+    end
+
+    local Question = require("leetcode-ui.question")
+    Question(question):mount()
+
+    log.info("Random question : " .. random_index .. "/5")
+  end)
+end
+
 function cmd.random_leetcode_75()
   require("leetcode.utils").auth_guard()
 
